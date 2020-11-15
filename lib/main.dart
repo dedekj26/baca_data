@@ -90,7 +90,7 @@ class MyHomePage extends StatelessWidget {
             onPressed: () {
               Navigator.pushNamed(context, '/second');
             },
-      )),
+      ),
     );
   }
 }
