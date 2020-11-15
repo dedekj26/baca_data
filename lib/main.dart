@@ -136,7 +136,9 @@ return Container(
               children: <Widget>[
                 FlatButton(
                   child: const Text('Edit', style: TextStyle(color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                      Navigator.pushNamed(context, '/second');
+                  },
                 ),
                 FlatButton(
                   child: const Text('Delete', style: TextStyle(color: Colors.white)),
