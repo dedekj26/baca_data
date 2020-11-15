@@ -96,7 +96,7 @@ class MhssList extends StatelessWidget {
 
 
 
-Widget viewData(var data,int index) build(BuildContext context)
+Widget viewData(var data,int index)
 {
 return Container(
     width: 200,
@@ -135,9 +135,7 @@ return Container(
               children: <Widget>[
                 FlatButton(
                   child: const Text('Edit', style: TextStyle(color: Colors.white)),
-                  onPressed: () {
-                      Navigator.pushNamed(context, '/second');
-                  },
+                  onPressed: () {},
                 ),
                 FlatButton(
                   child: const Text('Delete', style: TextStyle(color: Colors.white)),
