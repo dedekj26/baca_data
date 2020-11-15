@@ -133,7 +133,7 @@ return Container(
                 FlatButton(
                   child: const Text('Edit', style: TextStyle(color: Colors.white)),
                   onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => InputData()))
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => InputData()));
                   },
                 ),
                 FlatButton(
