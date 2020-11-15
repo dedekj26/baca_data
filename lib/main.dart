@@ -42,10 +42,9 @@ class Mhs {
 
 void main() {
   runApp(MaterialApp(
-    title: 'Data Mahasiswa',
     initialRoute: '/',
     routes: {
-      '/': (context) => MyHomePage(),
+      '/': (context) => MyApp(),
       '/second': (context) => InputData(),
     },
     debugShowCheckedModeBanner: false,
