@@ -272,9 +272,10 @@ class _MyAppState extends State<InputData> {
           ),
           body: Center(
               child: Column(children: <Widget>[
-                _inputNIM(),
-            _inputFullName(),
-            
+                _inputFullName(),
+                _inputkelas(),
+                _inputkdmatkul(),
+                _inputemail,            
             Container(
               margin: EdgeInsets.all(20),
               child: Text(fullName),
