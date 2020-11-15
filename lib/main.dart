@@ -93,7 +93,7 @@ class MhssList extends StatelessWidget {
 
   MhssList({Key key, this.MhsData}) : super(key: key);
 
-Widget viewData(var data,int index,BuildContext context)
+Widget viewData,build(var data,int index,BuildContext context)
 {
 return Container(
     width: 200,
@@ -282,7 +282,7 @@ class _MyAppState extends State<InputData> {
             tooltip: 'Close', // used by assistive technologies
             child: Icon(Icons.close),
             onPressed: () {
-              Navigator.pushNamed(context, '/second');
+              Navigator.pushNamed(context, '/');
             },
           )),
     );
