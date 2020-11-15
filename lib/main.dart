@@ -93,7 +93,7 @@ class MhssList extends StatelessWidget {
 
   MhssList({Key key, this.MhsData}) : super(key: key);
 
-Widget viewData,build(var data,int index,BuildContext context)
+Widget viewData(var data,int index)
 {
 return Container(
     width: 200,
@@ -133,7 +133,7 @@ return Container(
                 FlatButton(
                   child: const Text('Edit', style: TextStyle(color: Colors.white)),
                   onPressed: () {
-                      Navigator.pushNamed(context, '/second');
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => InputData()))
                   },
                 ),
                 FlatButton(
