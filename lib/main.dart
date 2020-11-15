@@ -96,7 +96,7 @@ class MhssList extends StatelessWidget {
 
 
 
-Widget viewData(var data,int index)
+Widget viewData(var data,int index) build(BuildContext context)
 {
 return Container(
     width: 200,
