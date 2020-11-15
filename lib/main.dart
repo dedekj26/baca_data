@@ -42,7 +42,7 @@ class Mhs {
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/',
+    initialRoute: '/second',
     routes: {
       '/': (context) => MyHomePage(),
       '/second': (context) => InputData(),
@@ -54,7 +54,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final appTitle = 'Data Mahasiswa UBD';
+    final appTitle = 'Data Mahasiswa';
 
     return MaterialApp(
       title: appTitle,
