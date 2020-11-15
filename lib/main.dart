@@ -159,7 +159,7 @@ return Container(
       ),
       itemCount: MhsData.length,
       itemBuilder: (context, index) {
-        return viewData(MhsData,index);
+        return viewData(MhsData,index,context);
       },
     );
   }
