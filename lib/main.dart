@@ -282,7 +282,7 @@ class _MyAppState extends State<InputData> {
             tooltip: 'Close', // used by assistive technologies
             child: Icon(Icons.close),
             onPressed: () {
-              Navigator.pushNamed(context, '/');
+              Navigator.pushNamed(context, '/second');
             },
           )),
     );
