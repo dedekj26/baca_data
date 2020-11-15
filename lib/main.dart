@@ -84,13 +84,6 @@ class MyHomePage extends StatelessWidget {
               : Center(child: CircularProgressIndicator());
         },
       ),
-      floatingActionButton: FloatingActionButton(
-            tooltip: 'Close', // used by assistive technologies
-            child: Icon(Icons.close),
-            onPressed: () {
-              Navigator.pushNamed(context, '/second');
-            },
-      ),
     );
   }
 }
@@ -166,6 +159,13 @@ return Container(
       itemBuilder: (context, index) {
         return viewData(MhsData,index,context);
       },
+      floatingActionButton: FloatingActionButton(
+            tooltip: 'Close', // used by assistive technologies
+            child: Icon(Icons.close),
+            onPressed: () {
+              Navigator.pushNamed(context, '/second');
+            },
+      ),
     );
   }
 }
@@ -272,7 +272,7 @@ class _MyAppState extends State<InputData> {
       home: Scaffold(
         
           appBar: AppBar(
-            title: Text('Input Data Mahasiswa'),
+            title: Text('Edit Data Mahasiswa'),
           ),
           body: Center(
               child: Column(children: <Widget>[
