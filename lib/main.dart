@@ -93,10 +93,6 @@ class MhssList extends StatelessWidget {
 
   MhssList({Key key, this.MhsData}) : super(key: key);
 
-  void editDataMHS(BuildContext context) {
-    Navigator.pushNamed(context, '/second');
-  }
-
 Widget viewData(var data,int index,BuildContext context)
 {
 return Container(
