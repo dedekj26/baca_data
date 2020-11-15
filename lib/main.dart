@@ -68,10 +68,6 @@ class MyHomePage extends StatelessWidget {
 
   MyHomePage({Key key, this.title}) : super(key: key);
 
-  void editDataMHS(BuildContext context) {
-    Navigator.pushNamed(context, '/second');
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,7 +93,9 @@ class MhssList extends StatelessWidget {
 
   MhssList({Key key, this.MhsData}) : super(key: key);
 
-
+  void editDataMHS(BuildContext context) {
+    Navigator.pushNamed(context, '/second');
+  }
 
 Widget viewData(var data,int index)
 {
