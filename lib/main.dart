@@ -273,7 +273,7 @@ class _MyAppState extends State<InputData> {
                 _inputFullName(),
                 _inputkelas(),
                 _inputkdmatkul(),
-                _inputemail()
+                _inputemail(),
             Container(
               margin: EdgeInsets.all(20),
               child: Text(fullName),
