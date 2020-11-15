@@ -68,6 +68,10 @@ class MyHomePage extends StatelessWidget {
 
   MyHomePage({Key key, this.title}) : super(key: key);
 
+  void editDataMHS(BuildContext context) {
+    Navigator.pushNamed(context, '/second');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -134,7 +138,9 @@ return Container(
               children: <Widget>[
                 FlatButton(
                   child: const Text('Edit', style: TextStyle(color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                      editDataMHS();
+                  },
                 ),
                 FlatButton(
                   child: const Text('Delete', style: TextStyle(color: Colors.white)),
