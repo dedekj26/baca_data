@@ -40,7 +40,17 @@ class Mhs {
   }
 }
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MaterialApp(
+    title: 'Home Data Mahasiswa',
+    initialRoute: '/',
+    routes: {
+      '/': (context) => MyHomePage(),
+      '/second': (context) => EditData(),
+    },
+    debugShowCheckedModeBanner: false,
+  ));
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -125,7 +135,9 @@ return Container(
               children: <Widget>[
                 FlatButton(
                   child: const Text('Edit', style: TextStyle(color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                      Navigator.pushNamed(context, '/second');
+                  },
                 ),
                 FlatButton(
                   child: const Text('Delete', style: TextStyle(color: Colors.white)),
@@ -150,6 +162,131 @@ return Container(
       itemBuilder: (context, index) {
         return viewData(MhsData,index);
       },
+    );
+  }
+}
+
+class InputData extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<InputData> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController kelasController = TextEditingController();
+  TextEditingController kdmatkulController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  String fullName = '';
+  String kelas = '';
+  String kdmatkul = '';
+  String email = '';
+
+  Widget _inputFullName() {
+    return Container(
+        margin: EdgeInsets.all(20),
+        child: TextField(
+          controller: nameController,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: "Nama Mahasiswa",
+          ),
+          onChanged: (text) {
+            setState(() {
+              fullName = text;
+              //you can access nameController in its scope to get
+              // the value of text entered as shown below
+              //fullName = nameController.text;
+            });
+          },
+        ));
+  }
+
+  Widget _inputkelas() {
+    return Container(
+        margin: EdgeInsets.all(20),
+        child: TextField(
+          controller: kelasController,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: "Kelas",
+          ),
+          onChanged: (text) {
+            setState(() {
+              kelas = text;
+              //you can access nameController in its scope to get
+              // the value of text entered as shown below
+              //nimMHS = nameController.text;
+            });
+          },
+        ));
+  }
+
+  Widget _inputkdmatkul() {
+    return Container(
+        margin: EdgeInsets.all(20),
+        child: TextField(
+          controller: kdmatkulController,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: "Kode Mata Kuliah",
+          ),
+          onChanged: (text) {
+            setState(() {
+              kdmatkul = text;
+              //you can access nameController in its scope to get
+              // the value of text entered as shown below
+              //fullName = nameController.text;
+            });
+          },
+        ));
+  }
+
+  Widget _inputemail() {
+    return Container(
+        margin: EdgeInsets.all(20),
+        child: TextField(
+          controller: emailController,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: "Email",
+          ),
+          onChanged: (text) {
+            setState(() {
+              email = text;
+              //you can access nameController in its scope to get
+              // the value of text entered as shown below
+              //fullName = nameController.text;
+            });
+          },
+        ));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        
+          appBar: AppBar(
+            title: Text('Input Data Mahasiswa'),
+          ),
+          body: Center(
+              child: Column(children: <Widget>[
+                _inputNIM(),
+            _inputFullName(),
+            
+            Container(
+              margin: EdgeInsets.all(20),
+              child: Text(fullName),
+            ),
+          ])),
+          floatingActionButton: FloatingActionButton(
+            tooltip: 'Close', // used by assistive technologies
+            child: Icon(Icons.close),
+            onPressed: () {
+              Navigator.pushNamed(context, '/');
+            },
+          )),
     );
   }
 }
