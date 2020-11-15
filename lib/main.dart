@@ -84,6 +84,13 @@ class MyHomePage extends StatelessWidget {
               : Center(child: CircularProgressIndicator());
         },
       ),
+      floatingActionButton: FloatingActionButton(
+            tooltip: 'Close', // used by assistive technologies
+            child: Icon(Icons.close),
+            onPressed: () {
+              Navigator.pushNamed(context, '/second');
+            },
+      )),
     );
   }
 }
