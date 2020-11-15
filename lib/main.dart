@@ -42,7 +42,8 @@ class Mhs {
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/second',
+    title: 'Data Mahasiswa',
+    initialRoute: '/',
     routes: {
       '/': (context) => MyHomePage(),
       '/second': (context) => InputData(),
