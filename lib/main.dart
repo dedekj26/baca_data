@@ -42,7 +42,7 @@ class Mhs {
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/',
+    initialRoute: '/second',
     routes: {
       '/': (context) => MyApp(),
       '/second': (context) => InputData(),
