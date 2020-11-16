@@ -260,7 +260,6 @@ class _MyAppState extends State<InputData> {
 
   Widget _btnsubmit() {
     return Container(
-        margin: EdgeInsets.all(20),
         child: RaisedButton(
         onPressed: () {},
         child: Text(
