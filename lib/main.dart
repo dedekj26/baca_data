@@ -203,7 +203,7 @@ class _MyAppState extends State<InputData> {
           ),
           onChanged: (text) {
             setState(() {
-              fullName = text;
+              fullName = nameController.text;
               //you can access nameController in its scope to get
               // the value of text entered as shown below
               //fullName = nameController.text;
@@ -223,7 +223,7 @@ class _MyAppState extends State<InputData> {
           ),
           onChanged: (text) {
             setState(() {
-              kelas = text;
+              kelas = kelasController.text;
               //you can access nameController in its scope to get
               // the value of text entered as shown below
               //nimMHS = nameController.text;
@@ -243,7 +243,7 @@ class _MyAppState extends State<InputData> {
           ),
           onChanged: (text) {
             setState(() {
-              kdmatkul = text;
+              kdmatkul = kdmatkulController.text;
               //you can access nameController in its scope to get
               // the value of text entered as shown below
               //fullName = nameController.text;
@@ -263,28 +263,26 @@ class _MyAppState extends State<InputData> {
           ),
           onChanged: (text) {
             setState(() {
-              email = text;
+              email = emailController.text;
               //you can access nameController in its scope to get
               // the value of text entered as shown below
               //fullName = nameController.text;
             });
           },
-        ));
-  }
-
-  Widget _btnsubmit() {
-    return Container(
-        child: RaisedButton(
-        onPressed: () {},
-        child: Text(
-            "Submit".toUpperCase(),
-            style: TextStyle(
-            color: Colors.white,
-            ),
         ),
-        color: Colors.yellow[700],
-        )
-    );
+        child: RaisedButton(
+            child: Text(
+                widget.profile == null
+                    ? "Submit".toUpperCase()
+                    : "Update Data".toUpperCase(),
+                style: TextStyle(
+                color: Colors.white,
+                ),
+            ),
+            onPressed: () {
+            ....
+            },
+        ));
   }
 
   @override
