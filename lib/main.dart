@@ -176,7 +176,7 @@ class InputData extends StatefulWidget {
     final String kdmatkul;
     final String email;
 
-    MhssList(this.nim, this.nama, this.kelas, this.kdmatkul, this.email);
+    InputData(this.nim, this.nama, this.kelas, this.kdmatkul, this.email);
 
   @override
   _MyAppState createState() => _MyAppState();
