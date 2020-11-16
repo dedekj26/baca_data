@@ -195,12 +195,7 @@ class _MyAppState extends State<InputData> {
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: "Nama Mahasiswa",
-          ),
-          onChanged: (text) {
-            setState(() {
-              nama = text;
-            });
-          },
+          )
         ),
 
         child: TextField(
@@ -208,12 +203,7 @@ class _MyAppState extends State<InputData> {
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: "Kelas",
-          ),
-          onChanged: (text) {
-            setState(() {
-              kelas = text;
-            });
-          },
+          )
         ),
 
         child: TextField(
@@ -221,12 +211,7 @@ class _MyAppState extends State<InputData> {
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: "Kode Mata Kuliah",
-          ),
-          onChanged: (text) {
-            setState(() {
-              kdmatkul = text;
-            });
-          },
+          )
         ),
 
         child: TextField(
@@ -234,12 +219,7 @@ class _MyAppState extends State<InputData> {
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: "Email",
-          ),
-          onChanged: (text) {
-            setState(() {
-              email = text;
-            });
-          },
+          )
         ));
   }
 
