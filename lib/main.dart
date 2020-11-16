@@ -298,7 +298,7 @@ class _MyAppState extends State<InputData> {
                     ),
                 ),
                 onPressed: () {},
-            ),
+            )),
           ])),
           floatingActionButton: FloatingActionButton(
             tooltip: 'Close', // used by assistive technologies
