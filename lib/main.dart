@@ -18,8 +18,7 @@ Future<void> deleteEmployee(String nim) async {
     final url = 'https://startmyflutter.000webhostapp.com/deleteDatajson.php';
     await http.get(url + '?nim=$nim');
 
-    Navigator.of(context).pushAndRemoveUntil(
-    MaterialPageRoute(builder: (context) => MyApp()), (route) => false);
+    return MyApp();
 }
 
 // A function that converts a response body into a List<Mhs>.
