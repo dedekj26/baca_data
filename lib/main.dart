@@ -182,11 +182,6 @@ class InputData extends StatefulWidget {
 }
 
 class _MyAppState extends State<InputData> {
-  final TextEditingController namaController = TextEditingController();
-  final TextEditingController kelasController = TextEditingController();
-  final TextEditingController kdmatkulController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-
   final String nim;
   final String nama;
   final String kelas;
@@ -194,6 +189,11 @@ class _MyAppState extends State<InputData> {
   final String email;
 
   _MyAppState(this.nim, this.nama, this.kelas, this.kdmatkul, this.email);
+
+  final TextEditingController namaController = nama;
+  final TextEditingController kelasController = kelas;
+  final TextEditingController kdmatkulController = kdmatkul;
+  final TextEditingController emailController = email;
   
   Widget _inputFullName() {
     return Container(
