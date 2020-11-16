@@ -272,11 +272,9 @@ class _MyAppState extends State<InputData> {
         ),
         child: RaisedButton(
             child: Text(
-                widget.profile == null
-                    ? "Submit".toUpperCase()
-                    : "Update Data".toUpperCase(),
+                "Submit".toUpperCase(),
                 style: TextStyle(
-                color: Colors.white,
+                color: Colors.yellow[700],
                 ),
             ),
             onPressed: () {},
