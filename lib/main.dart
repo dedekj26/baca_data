@@ -13,6 +13,25 @@ Future<List<Mhs>> fetchMhss(http.Client client) async {
   return compute(parseMhss, response.body);
 }
 
+// Update
+Future<bool> updateEmployee(nim, nama, kelas, kdmatkul, email) async {
+    final url = 'http://startmyflutter.000webhostapp.com/updateDatajson.php';
+    final response = await http.post(url, body: {
+      'nim': nim,
+      'nama': nama,
+      'kelas': kelas,
+      'kdmatkul': kdmatkul,
+      'email': email
+    });
+
+    final result = json.decode(response.body);
+    if (response.statusCode == 200 && result['status'] == 'success') {
+      notifyListeners();
+      return true;
+    }
+    return false;
+}
+
 // Delete
 Future<void> deleteEmployee(String nim) async {
     final url = 'https://startmyflutter.000webhostapp.com/deleteDatajson.php';
@@ -284,7 +303,9 @@ class _MyAppState extends State<InputData> {
                 ),
                 color: Colors.yellow[700],
                 onPressed: () {
-                    
+                    updateEmployee(nim, nama, kelas, kdmatkul, email);
+                    Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => MyApp()), (route) => false);
                 },
             )),
           ])),
