@@ -198,16 +198,19 @@ class _MyAppState extends State<InputData> {
   Widget _inputFullName() {
     return Container(
         margin: EdgeInsets.all(20),
-        child: TextField(
+        child: 
+        TextField(
           controller: namaController,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: "Nama Mahasiswa",
           ),
         ),
-        RaisedButton(onPressed: () {
-        namaController.text = "My Stringt";
-        })),
+        RaisedButton(
+          onPressed: () {
+            namaController.text = "My Stringt";
+        }),
+    );
   }
 
   Widget _inputkelas() {
