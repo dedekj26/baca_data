@@ -271,6 +271,7 @@ class _MyAppState extends State<InputData> {
         ),
         color: Colors.yellow[700],
         )
+    );
   }
 
   @override
