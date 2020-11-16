@@ -13,22 +13,22 @@ Future<List<Mhs>> fetchMhss(http.Client client) async {
   return compute(parseMhss, response.body);
 }
 
-Future<bool> updateEmployee(nim, nama, kelas, kdmatkul, email) async {
-  final url = 'http://employee-crud-flutter.daengweb.id/update.php';
-  final response = await http.post(url, body: {
-    'nim': nim,
-    'nama': nama,
-    'kelas': kelas,
-    'kdmatkul': kdmatkul,
-    'email': email
-  });
+// Future<bool> updateEmployee(nim, nama, kelas, kdmatkul, email) async {
+//   final url = 'http://employee-crud-flutter.daengweb.id/update.php';
+//   final response = await http.post(url, body: {
+//     'nim': nim,
+//     'nama': nama,
+//     'kelas': kelas,
+//     'kdmatkul': kdmatkul,
+//     'email': email
+//   });
 
-}
+// }
 
-Future<void> deleteEmployee(String nim) async {
-  final url = 'http://startmyflutter.000webhostapp.com/deleteDatajson.php';
-  await http.get(url + '?nim=$nim');
-}
+// Future<void> deleteEmployee(String nim) async {
+//   final url = 'http://startmyflutter.000webhostapp.com/deleteDatajson.php';
+//   await http.get(url + '?nim=$nim');
+// }
 
 // A function that converts a response body into a List<Mhs>.
 List<Mhs> parseMhss(String responseBody) {
@@ -161,7 +161,7 @@ return Container(
                 FlatButton(
                   child: const Text('Delete', style: TextStyle(color: Colors.white)),
                   onPressed: () {
-                    
+                    Provider.of<EmployeeProvider>(context, listen: false).deleteEmployee(data[index].nim);
                   },
                 ),
               ],
@@ -306,5 +306,12 @@ class _MyAppState extends State<InputData> {
             },
           )),
     );
+  }
+}
+
+class EmployeeProvider extends ChangeNotifier {
+  Future<void> deleteEmployee(String nim) async {
+    final url = 'https://startmyflutter.000webhostapp.com/deleteDatajson.php';
+    await http.get(url + '?nim=$nim');
   }
 }
