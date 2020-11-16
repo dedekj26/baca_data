@@ -143,7 +143,11 @@ return Container(
                 ),
                 FlatButton(
                   child: const Text('Delete', style: TextStyle(color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => HapusData(
+                          data[index].nim
+                      )));
+                  },
                 ),
               ],
             ),
@@ -288,4 +292,16 @@ class _MyAppState extends State<InputData> {
           )),
     );
   }
+}
+
+class HapusData() {
+  const url = 'http://startmyflutter.000webhostapp.com/deleteDatajson.php';
+  http
+    .post(url,
+        body: json.encode(
+        {
+            'nim': '171410123'
+        },
+    ));
+  };
 }
