@@ -13,6 +13,30 @@ Future<List<Mhs>> fetchMhss(http.Client client) async {
   return compute(parseMhss, response.body);
 }
 
+Future<bool> updateEmployee(nim, nama, kelas, kdmatkul, email) async {
+  final url = 'http://employee-crud-flutter.daengweb.id/update.php';
+  final response = await http.post(url, body: {
+    'nim': nim,
+    'nama': nama,
+    'kelas': kelas,
+    'kdmatkul': kdmatkul,
+    'email': email
+  });
+
+  final result = json.decode(response.body); //DECODE RESPONSE-NYA
+  //LAKUKAN PENGECEKAN, JIKA STATUSNYA 200 DAN BERHASIL
+  if (response.statusCode == 200 && result['status'] == 'success') {
+    notifyListeners(); //MAKA INFORMASIKAN KE WIDGET BAHWA TERJADI PERUBAHAN PADA STATE
+    return true;
+  }
+  return false;
+}
+
+Future<void> deleteEmployee(String nim) async {
+  final url = 'http://startmyflutter.000webhostapp.com/deleteDatajson.php';
+  await http.get(url + '?nim=$nim');
+}
+
 // A function that converts a response body into a List<Mhs>.
 List<Mhs> parseMhss(String responseBody) {
   final parsed = jsonDecode(responseBody).cast<Map<String, dynamic>>();
@@ -144,6 +168,7 @@ return Container(
                 FlatButton(
                   child: const Text('Delete', style: TextStyle(color: Colors.white)),
                   onPressed: () {
+                    Provider.of<EmployeeProvider>(context, listen: false).deleteEmployee(data[index].nim);
                   },
                 ),
               ],
