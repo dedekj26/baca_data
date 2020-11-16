@@ -193,7 +193,7 @@ class _MyAppState extends State<InputData> {
   String nim1 = nim;
 
   final TextEditingController namaController = TextEditingController(text: "nama");
-  final TextEditingController kelasController = TextEditingController();
+  final TextEditingController kelasController = TextEditingController(text: nim1);
   final TextEditingController kdmatkulController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
 
