@@ -188,6 +188,7 @@ class _MyAppState extends State<InputData> {
   TextEditingController emailController = TextEditingController();
   
     final String nim;
+    String fullName = '';
     final String nama;
     final String kelas;
     final String kdmatkul;
@@ -202,7 +203,7 @@ class _MyAppState extends State<InputData> {
           controller: nameController,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            hintText: fullName,
+            hintText: nama,
             labelText: "Nama Mahasiswa",
           ),
           onChanged: (text) {
