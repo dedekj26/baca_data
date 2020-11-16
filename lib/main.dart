@@ -201,7 +201,7 @@ class _MyAppState extends State<InputData> {
   _MyAppState(this.nim, this.nama, this.kelas, this.kdmatkul, this.email);
 
   Widget _inputFullName() {
-    namaController.text = nama;
+    
     return Container(
         margin: EdgeInsets.all(20),
         child: 
@@ -213,6 +213,7 @@ class _MyAppState extends State<InputData> {
           ),
           onChanged: (text) {
             setState(() {
+              namaController.text = nama;
               fixnama = namaController.text;
             });
           },
