@@ -194,8 +194,6 @@ class _MyAppState extends State<InputData> {
   final TextEditingController kelasController = TextEditingController();
   final TextEditingController kdmatkulController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
-  
-  namaController = nama;
 
   Widget _inputFullName() {
     return Container(
@@ -206,6 +204,14 @@ class _MyAppState extends State<InputData> {
             border: OutlineInputBorder(),
             labelText: "Nama Mahasiswa",
           ),
+          onChanged: (text) {
+            setState(() {
+              namaController.text = nama;
+              //you can access nameController in its scope to get
+              // the value of text entered as shown below
+              //fullName = nameController.text;
+            });
+          },
         ));
   }
 
