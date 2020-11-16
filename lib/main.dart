@@ -290,7 +290,14 @@ class _MyAppState extends State<InputData> {
                 _inputemail(),
             Container(
               margin: EdgeInsets.all(20),
-              child: Text(fullName),
+              child: RaisedButton(
+                child: Text(
+                    "Submit".toUpperCase(),
+                    style: TextStyle(
+                    color: Colors.white,
+                    ),
+                ),
+                onPressed: () {},
             ),
           ])),
           floatingActionButton: FloatingActionButton(
