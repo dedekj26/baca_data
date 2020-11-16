@@ -190,31 +190,29 @@ class _MyAppState extends State<InputData> {
   Widget _input() {
     return Container(
         margin: EdgeInsets.all(20),
-        child: TextField(
+        child: Listview(
+        TextField(
           controller: namaController,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: "Nama Mahasiswa",
           )
         ),
-
-        child: TextField(
+        TextField(
           controller: kelasController,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: "Kelas",
           )
         ),
-
-        child: TextField(
+        TextField(
           controller: kdmatkulController,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: "Kode Mata Kuliah",
           )
         ),
-
-        child: TextField(
+        TextField(
           controller: emailController,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
