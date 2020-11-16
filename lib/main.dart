@@ -195,6 +195,8 @@ class _MyAppState extends State<InputData> {
   final TextEditingController kdmatkulController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   
+  namaController = nama;
+
   Widget _inputFullName() {
     return Container(
         margin: EdgeInsets.all(20),
@@ -235,7 +237,7 @@ class _MyAppState extends State<InputData> {
     return Container(
         margin: EdgeInsets.all(20),
         child: TextField(
-          controller: emailController.text = email,
+          controller: emailController,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: "Email",
