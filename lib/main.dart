@@ -133,7 +133,13 @@ return Container(
                 FlatButton(
                   child: const Text('Edit', style: TextStyle(color: Colors.white)),
                   onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => InputData()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => InputData(
+                          data[index].nim,
+                          data[index].nama,
+                          data[index].kelas,
+                          data[index].kdmatkul,
+                          data[index].email
+                      )));
                   },
                 ),
                 FlatButton(
@@ -164,6 +170,14 @@ return Container(
 }
 
 class InputData extends StatefulWidget {
+    final String nim;
+    final String nama;
+    final String kelas;
+    final String kdmatkul;
+    final String email;
+
+    MhssList(this.nim, this.nama, this.kelas, this.kdmatkul, this.email);
+
   @override
   _MyAppState createState() => _MyAppState();
 }
