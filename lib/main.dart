@@ -294,7 +294,7 @@ class _MyAppState extends State<InputData> {
                 child: Text(
                     "Submit".toUpperCase(),
                     style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.blue[200],
                     ),
                 ),
                 onPressed: () {},
