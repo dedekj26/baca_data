@@ -13,6 +13,24 @@ Future<List<Mhs>> fetchMhss(http.Client client) async {
   return compute(parseMhss, response.body);
 }
 
+// Update
+Future<bool> updateEmployee(nim, nama, kelas, kdmatkul, email) async {
+    final url = 'https://startmyflutter.000webhostapp.com/updateDatajson.php';
+    final response = await http.post(url, body: {
+      'nim': nim,
+      'nama': nama,
+      'kelas': kelas,
+      'kdmatkul': kdmatkul,
+      'email': email
+    });
+}
+
+// Delete
+Future<void> deleteEmployee(String nim) async {
+    final url = 'https://startmyflutter.000webhostapp.com/deleteDatajson.php';
+    await http.get(url + '?nim=$nim');
+}
+
 // A function that converts a response body into a List<Mhs>.
 List<Mhs> parseMhss(String responseBody) {
   final parsed = jsonDecode(responseBody).cast<Map<String, dynamic>>();
@@ -40,12 +58,20 @@ class Mhs {
   }
 }
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MaterialApp(
+    initialRoute: '/',
+    routes: {
+      '/': (context) => MyApp(),
+    },
+    debugShowCheckedModeBanner: false,
+  ));
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final appTitle = 'Data Mahasiswa UBD';
+    final appTitle = 'Data Mahasiswa';
 
     return MaterialApp(
       title: appTitle,
@@ -84,9 +110,7 @@ class MhssList extends StatelessWidget {
 
   MhssList({Key key, this.MhsData}) : super(key: key);
 
-
-
-Widget viewData(var data,int index)
+Widget viewData(var data,int index,BuildContext context)
 {
 return Container(
     width: 200,
@@ -125,11 +149,23 @@ return Container(
               children: <Widget>[
                 FlatButton(
                   child: const Text('Edit', style: TextStyle(color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => InputData(
+                          data[index].nim,
+                          data[index].nama,
+                          data[index].kelas,
+                          data[index].kdmatkul,
+                          data[index].email
+                      )));
+                  },
                 ),
                 FlatButton(
                   child: const Text('Delete', style: TextStyle(color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    deleteEmployee(data[index].nim);
+                    Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => MyApp()), (route) => false);
+                  },
                 ),
               ],
             ),
@@ -148,8 +184,132 @@ return Container(
       ),
       itemCount: MhsData.length,
       itemBuilder: (context, index) {
-        return viewData(MhsData,index);
+        return viewData(MhsData,index,context);
       },
+    );
+  }
+}
+
+class InputData extends StatefulWidget {
+    final String nim;
+    final String nama;
+    final String kelas;
+    final String kdmatkul;
+    final String email;
+
+    InputData(this.nim, this.nama, this.kelas, this.kdmatkul, this.email);
+
+    @override
+    _MyAppState createState() => _MyAppState(nim, nama, kelas, kdmatkul, email);
+}
+
+class _MyAppState extends State<InputData> {
+  final String nim;
+  final String nama;
+  final String kelas;
+  final String kdmatkul;
+  final String email;
+
+  TextEditingController namaController = TextEditingController();
+  TextEditingController kelasController = TextEditingController();
+  TextEditingController kdmatkulController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  
+  _MyAppState(this.nim, this.nama, this.kelas, this.kdmatkul, this.email);
+
+  Widget _inputFullName() {
+    namaController.text = nama;
+    return Container(
+        margin: EdgeInsets.all(20),
+        child: 
+        TextField(
+          controller: namaController,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: "Nama Mahasiswa",
+          ),
+        ));
+  }
+
+  Widget _inputkelas() {
+    kelasController.text = kelas;
+    return Container(
+        margin: EdgeInsets.all(20),
+        child: TextField(
+          controller: kelasController,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: "Kelas",
+          ),
+        ));
+  }
+
+  Widget _inputkdmatkul() {
+    kdmatkulController.text = kdmatkul;
+    return Container(
+        margin: EdgeInsets.all(20),
+        child: TextField(
+          controller: kdmatkulController,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: "Kode Mata Kuliah",
+          ),
+        ));
+  }
+
+  Widget _inputemail() {
+    emailController.text = email;
+    return Container(
+        margin: EdgeInsets.all(20),
+        child: TextField(
+          controller: emailController,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: "Email",
+          ),
+        ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+          appBar: AppBar(
+            title: Text('Edit Data Mahasiswa'),
+          ),
+          body: Center(
+              child: Column(children: <Widget>[
+                _inputFullName(),
+                _inputkelas(),
+                _inputkdmatkul(),
+                _inputemail(),
+            Container(
+              margin: EdgeInsets.all(20),
+              child: RaisedButton(
+                child: Text(
+                    "Submit".toUpperCase(),
+                    style: TextStyle(
+                    color: Colors.white,
+                    ),
+                ),
+                color: Colors.yellow[700],
+                onPressed: () {
+                    updateEmployee(nim, namaController.text, kelasController.text, kdmatkulController.text, emailController.text);
+                    Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => MyApp()), (route) => false);
+                },
+            )),
+          ])),
+          floatingActionButton: FloatingActionButton(
+            tooltip: 'Close', // used by assistive technologies
+            child: Icon(Icons.close),
+            onPressed: () {
+                Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) => MyApp()), (route) => false);
+            },
+          )),
     );
   }
 }
