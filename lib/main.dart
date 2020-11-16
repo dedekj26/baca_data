@@ -270,13 +270,7 @@ class _MyAppState extends State<InputData> {
             });
           },
         ),
-        child: Text(
-            "Submit".toUpperCase(),
-            style: TextStyle(
-            color: Colors.yellow[700],
-            ),
-        ),
-        );
+    );
   }
 
   @override
