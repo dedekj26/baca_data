@@ -204,15 +204,10 @@ class _MyAppState extends State<InputData> {
             border: OutlineInputBorder(),
             labelText: "Nama Mahasiswa",
           ),
-          onChanged: (text) {
-            setState(() {
-              namaController.text = nama;
-              //you can access nameController in its scope to get
-              // the value of text entered as shown below
-              //fullName = nameController.text;
-            });
-          },
-        ));
+        ),
+        RaisedButton(onPressed: () {
+        namaController.text = "My Stringt";
+        })),
   }
 
   Widget _inputkelas() {
