@@ -45,7 +45,6 @@ void main() {
     initialRoute: '/',
     routes: {
       '/': (context) => MyApp(),
-      '/second': (context) => InputData(),
     },
     debugShowCheckedModeBanner: false,
   ));
