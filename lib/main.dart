@@ -197,7 +197,7 @@ class _MyAppState extends State<InputData> {
 
   Widget _inputFullName() {
     
-    namaController.t = nama;
+    namaController.text = nama;
     
     return Container(
         margin: EdgeInsets.all(20),
