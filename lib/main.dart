@@ -161,7 +161,7 @@ return Container(
                 FlatButton(
                   child: const Text('Delete', style: TextStyle(color: Colors.white)),
                   onPressed: () {
-                    Provider.of<EmployeeProvider>(context, listen: false).deleteEmployee(data[index].nim);
+                    Navigator.push(context, listen: false).deleteEmployee(data[index].nim);
                   },
                 ),
               ],
