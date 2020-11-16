@@ -270,15 +270,14 @@ class _MyAppState extends State<InputData> {
             });
           },
         ),
-        child: RaisedButton(
-            child: Text(
-                "Submit".toUpperCase(),
-                style: TextStyle(
-                color: Colors.yellow[700],
-                ),
+        child: Text(
+            "Submit".toUpperCase(),
+            style: TextStyle(
+            color: Colors.yellow[700],
             ),
-            onPressed: () {},
-        ));
+        ),
+        onPressed: () {},
+        );
   }
 
   @override
