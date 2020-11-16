@@ -42,7 +42,7 @@ class Mhs {
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/second',
+    initialRoute: '/',
     routes: {
       '/': (context) => MyApp(),
       '/second': (context) => InputData(),
@@ -133,7 +133,7 @@ return Container(
                 FlatButton(
                   child: const Text('Edit', style: TextStyle(color: Colors.white)),
                   onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => InputData()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => InputData(nama:data[index].nama)));
                   },
                 ),
                 FlatButton(
@@ -256,6 +256,38 @@ class _MyAppState extends State<InputData> {
             });
           },
         ));
+  }
+
+  Widget _btnsubmit() {
+    return Container(
+        margin: EdgeInsets.all(20),
+        child: RaisedButton(
+        onPressed: () {
+            setState(() => _isLoading = true);
+            String name = _controllerName.text.toString();
+            String email = _controllerEmail.text.toString();
+            int age = int.parse(_controllerAge.text.toString());
+            Profile profile =
+                Profile(name: name, email: email, age: age);
+            _apiService.createProfile(profile).then((isSuccess) {
+            setState(() => _isLoading = false);
+            if (isSuccess) {
+                Navigator.pop(_scaffoldState.currentState.context);
+            } else {
+                _scaffoldState.currentState.showSnackBar(SnackBar(
+                content: Text("Submit data failed"),
+                ));
+            }
+            });
+        },
+        child: Text(
+            "Submit".toUpperCase(),
+            style: TextStyle(
+            color: Colors.white,
+            ),
+        ),
+        color: Colors.orange[600],
+        )
   }
 
   @override
