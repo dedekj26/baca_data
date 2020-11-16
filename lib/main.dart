@@ -15,7 +15,7 @@ Future<List<Mhs>> fetchMhss(http.Client client) async {
 
 // Update
 Future<bool> updateEmployee(nim, nama, kelas, kdmatkul, email) async {
-    final url = 'http://startmyflutter.000webhostapp.com/updateDatajson.php';
+    final url = 'https://startmyflutter.000webhostapp.com/updateDatajson.php';
     final response = await http.post(url, body: {
       'nim': nim,
       'nama': nama,
@@ -296,7 +296,7 @@ class _MyAppState extends State<InputData> {
                 ),
                 color: Colors.yellow[700],
                 onPressed: () {
-                    updateEmployee(nim, nama, kelas, kdmatkul, email);
+                    updateEmployee(nim, namaController.text, kelasController.text, kdmatkulController.text, emailController.text);
                     Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute(builder: (context) => MyApp()), (route) => false);
                 },
