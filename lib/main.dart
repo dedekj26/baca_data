@@ -178,49 +178,31 @@ class InputData extends StatefulWidget {
     InputData(this.nim, this.nama, this.kelas, this.kdmatkul, this.email);
 
   @override
-  _MyAppState createState() => _MyAppState(nim, nama, kelas, kdmatkul, email);
+  _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<InputData> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController kelasController = TextEditingController();
-  TextEditingController kdmatkulController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  
-    String fullName = nama;
+  final TextEditingController namaController = TextEditingController();
+  final TextEditingController kelasController = TextEditingController();
+  final TextEditingController kdmatkulController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
 
-    final String nim;
-    final String nama;
-    final String kelas;
-    final String kdmatkul;
-    final String email;
-    
-    _MyAppState(this.nim, this.nama, this.kelas, this.kdmatkul, this.email);
-
-  Widget _inputFullName() {
+  Widget _input() {
     return Container(
         margin: EdgeInsets.all(20),
         child: TextField(
-          controller: nameController,
+          controller: namaController,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            hintText: nama,
             labelText: "Nama Mahasiswa",
           ),
           onChanged: (text) {
             setState(() {
-              fullName = text;
-              //you can access nameController in its scope to get
-              // the value of text entered as shown below
-              //fullName = nameController.text;
+              nama = text;
             });
           },
         ));
-  }
 
-  Widget _inputkelas() {
-    return Container(
-        margin: EdgeInsets.all(20),
         child: TextField(
           controller: kelasController,
           decoration: InputDecoration(
@@ -230,17 +212,10 @@ class _MyAppState extends State<InputData> {
           onChanged: (text) {
             setState(() {
               kelas = text;
-              //you can access nameController in its scope to get
-              // the value of text entered as shown below
-              //nimMHS = nameController.text;
             });
           },
         ));
-  }
 
-  Widget _inputkdmatkul() {
-    return Container(
-        margin: EdgeInsets.all(20),
         child: TextField(
           controller: kdmatkulController,
           decoration: InputDecoration(
@@ -250,17 +225,10 @@ class _MyAppState extends State<InputData> {
           onChanged: (text) {
             setState(() {
               kdmatkul = text;
-              //you can access nameController in its scope to get
-              // the value of text entered as shown below
-              //fullName = nameController.text;
             });
           },
         ));
-  }
 
-  Widget _inputemail() {
-    return Container(
-        margin: EdgeInsets.all(20),
         child: TextField(
           controller: emailController,
           decoration: InputDecoration(
@@ -270,13 +238,9 @@ class _MyAppState extends State<InputData> {
           onChanged: (text) {
             setState(() {
               email = text;
-              //you can access nameController in its scope to get
-              // the value of text entered as shown below
-              //fullName = nameController.text;
             });
           },
-        ),
-    );
+        ));
   }
 
   @override
@@ -284,16 +248,12 @@ class _MyAppState extends State<InputData> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        
           appBar: AppBar(
             title: Text('Edit Data Mahasiswa'),
           ),
           body: Center(
               child: Column(children: <Widget>[
-                _inputFullName(),
-                _inputkelas(),
-                _inputkdmatkul(),
-                _inputemail(),
+                _input(),
             Container(
               margin: EdgeInsets.all(20),
               child: RaisedButton(
@@ -313,7 +273,8 @@ class _MyAppState extends State<InputData> {
             tooltip: 'Close', // used by assistive technologies
             child: Icon(Icons.close),
             onPressed: () {
-              Navigator.pushNamed(context, '/');
+                Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) => MyApp()), (route) => false);
             },
           )),
     );
