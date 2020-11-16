@@ -204,9 +204,6 @@ class _MyAppState extends State<InputData> {
             border: OutlineInputBorder(),
             labelText: "Nama Mahasiswa",
           ),
-          RaisedButton(onPressed: () {
-            namaController.text = nama;
-          }),
         ));
   }
 
@@ -219,9 +216,6 @@ class _MyAppState extends State<InputData> {
             border: OutlineInputBorder(),
             labelText: "Kelas",
           ),
-          RaisedButton(onPressed: () {
-            kelasController.text = kelas;
-          }),
         ));
   }
 
@@ -234,9 +228,6 @@ class _MyAppState extends State<InputData> {
             border: OutlineInputBorder(),
             labelText: "Kode Mata Kuliah",
           ),
-          RaisedButton(onPressed: () {
-            kdmatkulController.text = kdmatkul;
-          }),
         ));
   }
 
@@ -244,14 +235,11 @@ class _MyAppState extends State<InputData> {
     return Container(
         margin: EdgeInsets.all(20),
         child: TextField(
-          controller: emailController,
+          controller: emailController.text = email,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: "Email",
           ),
-          RaisedButton(onPressed: () {
-            emailController.text = email;
-          }),
         ),
     );
   }
