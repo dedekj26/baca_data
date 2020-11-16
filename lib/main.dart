@@ -23,13 +23,6 @@ Future<bool> updateEmployee(nim, nama, kelas, kdmatkul, email) async {
     'email': email
   });
 
-  final result = json.decode(response.body); //DECODE RESPONSE-NYA
-  //LAKUKAN PENGECEKAN, JIKA STATUSNYA 200 DAN BERHASIL
-  if (response.statusCode == 200 && result['status'] == 'success') {
-    notifyListeners(); //MAKA INFORMASIKAN KE WIDGET BAHWA TERJADI PERUBAHAN PADA STATE
-    return true;
-  }
-  return false;
 }
 
 Future<void> deleteEmployee(String nim) async {
