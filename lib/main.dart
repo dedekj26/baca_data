@@ -200,7 +200,7 @@ class _MyAppState extends State<InputData> {
           controller: nameController,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            Text: fullName,
+            hintText: fullName,
             labelText: "Nama Mahasiswa",
           ),
           onChanged: (text) {
