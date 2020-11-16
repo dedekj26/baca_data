@@ -175,7 +175,7 @@ class InputData extends StatefulWidget {
     final String kdmatkul;
     final String email;
 
-    InputData(this.nim, this.nama, this.kelas, this.kdmatkul, this.email);
+    InputData({Key key, this.nim, this.nama, this.kelas, this.kdmatkul, this.email} : super(key: key));
 
   @override
   _MyAppState createState() => _MyAppState();
