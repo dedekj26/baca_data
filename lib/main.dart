@@ -161,7 +161,7 @@ return Container(
                 FlatButton(
                   child: const Text('Delete', style: TextStyle(color: Colors.white)),
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => deleteEmployee(String data[index].nim)));
+                    
                   },
                 ),
               ],
