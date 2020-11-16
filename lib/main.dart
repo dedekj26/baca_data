@@ -196,9 +196,7 @@ class _MyAppState extends State<InputData> {
   _MyAppState(this.nim, this.nama, this.kelas, this.kdmatkul, this.email);
 
   Widget _inputFullName() {
-    
     namaController.text = nama;
-    
     return Container(
         margin: EdgeInsets.all(20),
         child: 
@@ -212,6 +210,7 @@ class _MyAppState extends State<InputData> {
   }
 
   Widget _inputkelas() {
+    kelasController.text = kelas;
     return Container(
         margin: EdgeInsets.all(20),
         child: TextField(
@@ -224,6 +223,7 @@ class _MyAppState extends State<InputData> {
   }
 
   Widget _inputkdmatkul() {
+    kdmatkulController.text = kdmatkul;
     return Container(
         margin: EdgeInsets.all(20),
         child: TextField(
@@ -236,6 +236,7 @@ class _MyAppState extends State<InputData> {
   }
 
   Widget _inputemail() {
+    emailController.text = email;
     return Container(
         margin: EdgeInsets.all(20),
         child: TextField(
