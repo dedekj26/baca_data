@@ -15,8 +15,10 @@ Future<List<Mhs>> fetchMhss(http.Client client) async {
 
 // Delete
 Future<void> deleteEmployee(String nim) async {
-final url = 'https://startmyflutter.000webhostapp.com/deleteDatajson.php';
-await http.get(url + '?nim=$nim');
+    final url = 'https://startmyflutter.000webhostapp.com/deleteDatajson.php';
+    await http.get(url + '?nim=$nim');
+
+    return Mhs;
 }
 
 // A function that converts a response body into a List<Mhs>.
