@@ -133,7 +133,7 @@ return Container(
                 FlatButton(
                   child: const Text('Edit', style: TextStyle(color: Colors.white)),
                   onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => InputData(nama:data[index].nama)));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => InputData()));
                   },
                 ),
                 FlatButton(
@@ -167,8 +167,6 @@ class InputData extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
 }
-
-InputData({this.nama});
 
 class _MyAppState extends State<InputData> {
   TextEditingController nameController = TextEditingController();
