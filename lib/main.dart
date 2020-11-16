@@ -208,7 +208,7 @@ class _MyAppState extends State<InputData> {
           ),
           onChanged: (text) {
             setState(() {
-              fullName = nameController.text;
+              fullName = text;
               //you can access nameController in its scope to get
               // the value of text entered as shown below
               //fullName = nameController.text;
@@ -228,7 +228,7 @@ class _MyAppState extends State<InputData> {
           ),
           onChanged: (text) {
             setState(() {
-              kelas = kelasController.text;
+              kelas = text;
               //you can access nameController in its scope to get
               // the value of text entered as shown below
               //nimMHS = nameController.text;
@@ -248,7 +248,7 @@ class _MyAppState extends State<InputData> {
           ),
           onChanged: (text) {
             setState(() {
-              kdmatkul = kdmatkulController.text;
+              kdmatkul = text;
               //you can access nameController in its scope to get
               // the value of text entered as shown below
               //fullName = nameController.text;
@@ -268,7 +268,7 @@ class _MyAppState extends State<InputData> {
           ),
           onChanged: (text) {
             setState(() {
-              email = emailController.text;
+              email = text;
               //you can access nameController in its scope to get
               // the value of text entered as shown below
               //fullName = nameController.text;
