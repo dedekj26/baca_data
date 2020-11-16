@@ -201,7 +201,7 @@ class _MyAppState extends State<InputData> {
               nama = text;
             });
           },
-        ));
+        ),
 
         child: TextField(
           controller: kelasController,
@@ -214,7 +214,7 @@ class _MyAppState extends State<InputData> {
               kelas = text;
             });
           },
-        ));
+        ),
 
         child: TextField(
           controller: kdmatkulController,
@@ -227,7 +227,7 @@ class _MyAppState extends State<InputData> {
               kdmatkul = text;
             });
           },
-        ));
+        ),
 
         child: TextField(
           controller: emailController,
