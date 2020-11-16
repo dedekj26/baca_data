@@ -189,7 +189,7 @@ class _MyAppState extends State<InputData> {
   final String email;
   
   TextEditingController namaController = TextEditingController(text: "nama");
-  TextEditingController kelasController = TextEditingController(text: kelas);
+  TextEditingController kelasController = TextEditingController();
   TextEditingController kdmatkulController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   
