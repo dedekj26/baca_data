@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:provider/provider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -13,23 +12,6 @@ Future<List<Mhs>> fetchMhss(http.Client client) async {
   // Use the compute function to run parseMhss in a separate isolate.
   return compute(parseMhss, response.body);
 }
-
-// Future<bool> updateEmployee(nim, nama, kelas, kdmatkul, email) async {
-//   final url = 'http://employee-crud-flutter.daengweb.id/update.php';
-//   final response = await http.post(url, body: {
-//     'nim': nim,
-//     'nama': nama,
-//     'kelas': kelas,
-//     'kdmatkul': kdmatkul,
-//     'email': email
-//   });
-
-// }
-
-// Future<void> deleteEmployee(String nim) async {
-//   final url = 'http://startmyflutter.000webhostapp.com/deleteDatajson.php';
-//   await http.get(url + '?nim=$nim');
-// }
 
 // A function that converts a response body into a List<Mhs>.
 List<Mhs> parseMhss(String responseBody) {
@@ -162,7 +144,7 @@ return Container(
                 FlatButton(
                   child: const Text('Delete', style: TextStyle(color: Colors.white)),
                   onPressed: () {
-                    Provider.of<EmployeeProvider>(context, listen: false).deleteEmployee(data[index].nim);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => EmployeeProvider.deleteEmployee(data[index].nim))));
                   },
                 ),
               ],
@@ -294,7 +276,7 @@ class _MyAppState extends State<InputData> {
                 ),
                 color: Colors.yellow[700],
                 onPressed: () {
-
+                    
                 },
             )),
           ])),
