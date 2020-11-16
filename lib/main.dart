@@ -13,6 +13,12 @@ Future<List<Mhs>> fetchMhss(http.Client client) async {
   return compute(parseMhss, response.body);
 }
 
+// Delete
+Future<void> deleteEmployee(String nim) async {
+final url = 'https://startmyflutter.000webhostapp.com/deleteDatajson.php';
+await http.get(url + '?nim=$nim');
+}
+
 // A function that converts a response body into a List<Mhs>.
 List<Mhs> parseMhss(String responseBody) {
   final parsed = jsonDecode(responseBody).cast<Map<String, dynamic>>();
@@ -289,12 +295,5 @@ class _MyAppState extends State<InputData> {
             },
           )),
     );
-  }
-}
-
-class EmployeeProvider extends ChangeNotifier {
-  Future<void> deleteEmployee(String nim) async {
-    final url = 'https://startmyflutter.000webhostapp.com/deleteDatajson.php';
-    await http.get(url + '?nim=$nim');
   }
 }
