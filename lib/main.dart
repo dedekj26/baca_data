@@ -168,6 +168,8 @@ class InputData extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 
+InputData({this.nama});
+
 class _MyAppState extends State<InputData> {
   TextEditingController nameController = TextEditingController();
   TextEditingController kelasController = TextEditingController();
