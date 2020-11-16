@@ -187,15 +187,13 @@ class _MyAppState extends State<InputData> {
   final String kelas;
   final String kdmatkul;
   final String email;
-
+  
+  TextEditingController namaController = TextEditingController(text: "nama");
+  TextEditingController kelasController = TextEditingController(text: kelas);
+  TextEditingController kdmatkulController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  
   _MyAppState(this.nim, this.nama, this.kelas, this.kdmatkul, this.email);
-
-  String nim1 = nim;
-
-  final TextEditingController namaController = TextEditingController(text: "nama");
-  final TextEditingController kelasController = TextEditingController(text: nim1);
-  final TextEditingController kdmatkulController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
 
   Widget _inputFullName() {
     return Container(
