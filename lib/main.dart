@@ -175,7 +175,7 @@ class InputData extends StatefulWidget {
     final String kdmatkul;
     final String email;
 
-    InputData({Key key, this.nim, this.nama, this.kelas, this.kdmatkul, this.email} : super(key: key));
+    InputData(this.nim, this.nama, this.kelas, this.kdmatkul, this.email);
 
   @override
   _MyAppState createState() => _MyAppState();
@@ -187,11 +187,11 @@ class _MyAppState extends State<InputData> {
   TextEditingController kdmatkulController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   
-  String nim = Text(nim);
-  String fullName = Text(nama);
-  String kelas = Text(kelas);
-  String kdmatkul = Text(kdmatkul);
-  String email = Text(email);
+  String nim = '';
+  String fullName = '';
+  String kelas = '';
+  String kdmatkul = '';
+  String email = '';
 
   Widget _inputFullName() {
     return Container(
