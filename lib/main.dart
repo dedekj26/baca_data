@@ -151,7 +151,8 @@ return Container(
                   child: const Text('Delete', style: TextStyle(color: Colors.white)),
                   onPressed: () {
                     deleteEmployee(data[index].nim);
-                    setState(() {});
+                    Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => MyApp()), (route) => false);
                   },
                 ),
               ],
