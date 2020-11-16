@@ -294,10 +294,13 @@ class _MyAppState extends State<InputData> {
                 child: Text(
                     "Submit".toUpperCase(),
                     style: TextStyle(
-                    color: Colors.blue[200],
+                    color: Colors.white,
                     ),
                 ),
-                onPressed: () {},
+                color: Colors.yellow[700],
+                onPressed: () {
+
+                },
             )),
           ])),
           floatingActionButton: FloatingActionButton(
