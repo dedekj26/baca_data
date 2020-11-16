@@ -23,13 +23,6 @@ Future<bool> updateEmployee(nim, nama, kelas, kdmatkul, email) async {
       'kdmatkul': kdmatkul,
       'email': email
     });
-
-    final result = json.decode(response.body);
-    if (response.statusCode == 200 && result['status'] == 'success') {
-      notifyListeners();
-      return true;
-    }
-    return false;
 }
 
 // Delete
