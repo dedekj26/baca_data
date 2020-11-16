@@ -187,8 +187,9 @@ class _MyAppState extends State<InputData> {
   TextEditingController kdmatkulController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   
+    String fullName = nama;
+
     final String nim;
-    String fullName = '';
     final String nama;
     final String kelas;
     final String kdmatkul;
