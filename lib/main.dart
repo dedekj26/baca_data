@@ -187,6 +187,11 @@ class _MyAppState extends State<InputData> {
   final String kelas;
   final String kdmatkul;
   final String email;
+
+  String fixnama;
+  String fixkelas;
+  String fixkdmatkul;
+  String fixemail;
   
   TextEditingController namaController = TextEditingController();
   TextEditingController kelasController = TextEditingController();
@@ -206,6 +211,11 @@ class _MyAppState extends State<InputData> {
             border: OutlineInputBorder(),
             labelText: "Nama Mahasiswa",
           ),
+          onChanged: (text) {
+            setState(() {
+              fixnama = namaController.text;
+            });
+          },
         ));
   }
 
@@ -219,6 +229,11 @@ class _MyAppState extends State<InputData> {
             border: OutlineInputBorder(),
             labelText: "Kelas",
           ),
+          onChanged: (text) {
+            setState(() {
+              fixkelas = kelasController.text;
+            });
+          },
         ));
   }
 
@@ -232,6 +247,11 @@ class _MyAppState extends State<InputData> {
             border: OutlineInputBorder(),
             labelText: "Kode Mata Kuliah",
           ),
+          onChanged: (text) {
+            setState(() {
+              fixkdmatkul = kdmatkulController.text;
+            });
+          },
         ));
   }
 
@@ -245,6 +265,11 @@ class _MyAppState extends State<InputData> {
             border: OutlineInputBorder(),
             labelText: "Email",
           ),
+          onChanged: (text) {
+            setState(() {
+              fixemail = emailController.text;
+            });
+          },
         ),
     );
   }
