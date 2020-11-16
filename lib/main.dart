@@ -17,8 +17,6 @@ Future<List<Mhs>> fetchMhss(http.Client client) async {
 Future<void> deleteEmployee(String nim) async {
     final url = 'https://startmyflutter.000webhostapp.com/deleteDatajson.php';
     await http.get(url + '?nim=$nim');
-
-    setState(() {});
 }
 
 // A function that converts a response body into a List<Mhs>.
@@ -153,6 +151,7 @@ return Container(
                   child: const Text('Delete', style: TextStyle(color: Colors.white)),
                   onPressed: () {
                     deleteEmployee(data[index].nim);
+                    setState(() {});
                   },
                 ),
               ],
