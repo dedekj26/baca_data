@@ -262,31 +262,14 @@ class _MyAppState extends State<InputData> {
     return Container(
         margin: EdgeInsets.all(20),
         child: RaisedButton(
-        onPressed: () {
-            setState(() => _isLoading = true);
-            String name = _controllerName.text.toString();
-            String email = _controllerEmail.text.toString();
-            int age = int.parse(_controllerAge.text.toString());
-            Profile profile =
-                Profile(name: name, email: email, age: age);
-            _apiService.createProfile(profile).then((isSuccess) {
-            setState(() => _isLoading = false);
-            if (isSuccess) {
-                Navigator.pop(_scaffoldState.currentState.context);
-            } else {
-                _scaffoldState.currentState.showSnackBar(SnackBar(
-                content: Text("Submit data failed"),
-                ));
-            }
-            });
-        },
+        onPressed: () {},
         child: Text(
             "Submit".toUpperCase(),
             style: TextStyle(
             color: Colors.white,
             ),
         ),
-        color: Colors.orange[600],
+        color: Colors.yellow[700],
         )
   }
 
