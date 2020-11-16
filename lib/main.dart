@@ -187,38 +187,53 @@ class _MyAppState extends State<InputData> {
   final TextEditingController kdmatkulController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
 
-  Widget _input() {
+  Widget _inputFullName() {
     return Container(
         margin: EdgeInsets.all(20),
-        child: Listview(
-        TextField(
+        child: TextField(
           controller: namaController,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: "Nama Mahasiswa",
-          )
-        ),
-        TextField(
+          ),
+        ));
+  }
+
+  Widget _inputkelas() {
+    return Container(
+        margin: EdgeInsets.all(20),
+        child: TextField(
           controller: kelasController,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: "Kelas",
-          )
-        ),
-        TextField(
+          ),
+        ));
+  }
+
+  Widget _inputkdmatkul() {
+    return Container(
+        margin: EdgeInsets.all(20),
+        child: TextField(
           controller: kdmatkulController,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: "Kode Mata Kuliah",
-          )
-        ),
-        TextField(
+          ),
+        ));
+  }
+
+  Widget _inputemail() {
+    return Container(
+        margin: EdgeInsets.all(20),
+        child: TextField(
           controller: emailController,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: "Email",
-          )
-        ));
+          ),
+        ),
+    );
   }
 
   @override
@@ -231,7 +246,10 @@ class _MyAppState extends State<InputData> {
           ),
           body: Center(
               child: Column(children: <Widget>[
-                _input(),
+                _inputFullName(),
+                _inputkelas(),
+                _inputkdmatkul(),
+                _inputemail(),
             Container(
               margin: EdgeInsets.all(20),
               child: RaisedButton(
