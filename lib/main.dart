@@ -191,10 +191,11 @@ class _MyAppState extends State<InputData> {
     return Container(
         margin: EdgeInsets.all(20),
         child: TextField(
-          controller: 'namaController',
+          controller: namaController,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: "Nama Mahasiswa",
+            hintText: nama,
           ),
         ));
   }
