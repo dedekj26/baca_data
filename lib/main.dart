@@ -190,10 +190,10 @@ class _MyAppState extends State<InputData> {
 
   _MyAppState(this.nim, this.nama, this.kelas, this.kdmatkul, this.email);
 
-  final TextEditingController namaController = nama;
-  final TextEditingController kelasController = kelas;
-  final TextEditingController kdmatkulController = kdmatkul;
-  final TextEditingController emailController = email;
+  final TextEditingController namaController = TextEditingController();
+  final TextEditingController kelasController = TextEditingController();
+  final TextEditingController kdmatkulController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
   
   Widget _inputFullName() {
     return Container(
@@ -203,8 +203,10 @@ class _MyAppState extends State<InputData> {
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: "Nama Mahasiswa",
-            hintText: nama,
           ),
+          RaisedButton(onPressed: () {
+            namaController.text = nama;
+          }),
         ));
   }
 
@@ -217,6 +219,9 @@ class _MyAppState extends State<InputData> {
             border: OutlineInputBorder(),
             labelText: "Kelas",
           ),
+          RaisedButton(onPressed: () {
+            kelasController.text = kelas;
+          }),
         ));
   }
 
@@ -229,6 +234,9 @@ class _MyAppState extends State<InputData> {
             border: OutlineInputBorder(),
             labelText: "Kode Mata Kuliah",
           ),
+          RaisedButton(onPressed: () {
+            kdmatkulController.text = kdmatkul;
+          }),
         ));
   }
 
@@ -241,6 +249,9 @@ class _MyAppState extends State<InputData> {
             border: OutlineInputBorder(),
             labelText: "Email",
           ),
+          RaisedButton(onPressed: () {
+            emailController.text = email;
+          }),
         ),
     );
   }
